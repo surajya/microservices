@@ -3,6 +3,7 @@ D:\JAVA\UDemy\Microservices\Section6\v1-springboot\account\src\main\java\com\Eas
 D:\JAVA\UDemy\Microservices\Section6\v1-springboot\account\src\main\java\com\EasyBytes\account\constant\AccountsConstants.java
 D:\JAVA\UDemy\Microservices\Section6\v1-springboot\account\src\main\java\com\EasyBytes\account\controller\AccountController.java
 D:\JAVA\UDemy\Microservices\Section6\v1-springboot\account\src\main\java\com\EasyBytes\account\dto\AccountDTO.java
+D:\JAVA\UDemy\Microservices\Section6\v1-springboot\account\src\main\java\com\EasyBytes\account\dto\AccountsContactInfoDto.java
 D:\JAVA\UDemy\Microservices\Section6\v1-springboot\account\src\main\java\com\EasyBytes\account\dto\CustomerDTO.java
 D:\JAVA\UDemy\Microservices\Section6\v1-springboot\account\src\main\java\com\EasyBytes\account\dto\ErrorResponseDTO.java
 D:\JAVA\UDemy\Microservices\Section6\v1-springboot\account\src\main\java\com\EasyBytes\account\dto\ResponseDTO.java

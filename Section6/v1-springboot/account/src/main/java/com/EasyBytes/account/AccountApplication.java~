@@ -22,7 +22,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 				contact= @Contact(
 					name="Abhishek",
 					email="WlCt5@example.com",
-					url="https://www.google.com"
+					url="https://www.theforage.com/dashboard"
 				),
 				license = @License(
 						name = "Apache 2.0",
@@ -31,7 +31,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 		),
 		externalDocs = @ExternalDocumentation(
 				description = "EasyBank Accounts Microservice Documentation",
-				url = "https://www.google.com"
+				url = "https://www.theforage.com/dashboard"
 		)
 )
 public class AccountApplication {

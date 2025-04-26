@@ -1,6 +1,7 @@
 package com.EasyBytes.account.controller;
 
 import com.EasyBytes.account.constant.AccountsConstants;
+import com.EasyBytes.account.dto.AccountsContactInfoDto;
 import com.EasyBytes.account.dto.CustomerDTO;
 import com.EasyBytes.account.dto.ErrorResponseDTO;
 import com.EasyBytes.account.dto.ResponseDTO;
@@ -16,6 +17,7 @@ import jakarta.validation.constraints.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -32,14 +34,18 @@ import org.springframework.web.bind.annotation.*;
 class AccountController {
 
     private final IAccountService iAccountService;
-    
-    public AccountController(IAccountService iAccountService) {
-        this.iAccountService = iAccountService;
-    }
 
     @Value("${build.version}")
     private String buildVersion;
 
+    private Environment environment;
+    private AccountsContactInfoDto accountsContactInfoDto;
+
+    public AccountController(IAccountService iAccountService, Environment environment, AccountsContactInfoDto accountsContactInfoDto) {
+        this.iAccountService = iAccountService;
+        this.environment = environment;
+        this.accountsContactInfoDto = accountsContactInfoDto;
+    }
 
     @Operation(
         summary = "Create Account Details Rest API",
@@ -154,5 +160,39 @@ class AccountController {
     @GetMapping(path = "/build-info")
     public ResponseEntity<String> getVersion() {
         return ResponseEntity.ok(buildVersion);
+    }
+
+
+    @Operation(
+            summary = "Fetch java version of Account Rest API",
+            description = "Rest API Fetch java info version of Account"
+    )
+    @ApiResponse(responseCode = "201", description = "build version Fetched Successfully")
+    @GetMapping(path = "/java-version")
+    public ResponseEntity<String> getJavaVersion() {
+        return ResponseEntity.ok(environment.getProperty("JAVA_HOME"));
+    }
+
+
+    @Operation(
+            summary = "Get Contact Info",
+            description = "Contact Info details that can be reached out in case of any issues"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error"
+            )
+    }
+    )
+    @GetMapping("/contact-info")
+    public ResponseEntity<AccountsContactInfoDto> getContactInfo() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(accountsContactInfoDto);
     }
 }
