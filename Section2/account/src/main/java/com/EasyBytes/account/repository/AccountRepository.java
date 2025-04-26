@@ -13,11 +13,11 @@ import java.util.Optional;
 public interface AccountRepository extends JpaRepository<Account, Long> {
 
 
-    Optional<Account> findByCustomerIdf(Long customerIdf);
+    Optional<Account> findByCustomerId(Long customerIdf);
 
     @Modifying
     @Transactional
-    void deleteByCustomerIdf(Long customerIdf);
+    void deleteByCustomerId(Long customerIdf);
 
 
 }

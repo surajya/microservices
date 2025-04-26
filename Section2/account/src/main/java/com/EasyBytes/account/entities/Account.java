@@ -7,8 +7,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Getter@Setter@ToString@NoArgsConstructor@AllArgsConstructor
 @Entity
 public class Account extends BaseEntities {
-    @Column(name="customer_idf")
-    private long customerIdf;
+    @Column(name="customer_id")
+    private long customerId;
 
     @Column(name="account_number")
     @Id

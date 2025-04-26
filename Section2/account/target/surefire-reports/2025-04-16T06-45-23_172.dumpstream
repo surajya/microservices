@@ -1,5 +1,0 @@
-# Created at 2025-04-16T06:45:23.642
-Boot Manifest-JAR contains absolute paths in classpath 'D:\JAVA\UDemy\Microservices\Section2\account\target\test-classes'
-Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
-'other' has different root
-

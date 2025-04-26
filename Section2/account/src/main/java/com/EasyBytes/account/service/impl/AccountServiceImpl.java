@@ -13,12 +13,15 @@ import com.EasyBytes.account.repository.AccountRepository;
 import com.EasyBytes.account.repository.CustomerRepository;
 import com.EasyBytes.account.service.IAccountService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Random;
 
+
+@Slf4j
 @Service
 @AllArgsConstructor
 public class AccountServiceImpl implements IAccountService {
@@ -36,7 +39,9 @@ public class AccountServiceImpl implements IAccountService {
         customer.setCreatedAt(LocalDateTime.now());
         customer.setCreatedBy("ByAdmin34");
         Customer customerSave = customerRepository.save(customer);
+        log.info("Customer created", customerSave);
         accountRepository.save(createNewAccount(customerSave));
+
 
     }
 
@@ -44,7 +49,7 @@ public class AccountServiceImpl implements IAccountService {
 
     private Account createNewAccount(Customer customer) {
         Account newAccount = new Account();
-        newAccount.setCustomerIdf(customer.getCustomerId());
+        newAccount.setCustomerId(customer.getCustomerId());
         long randomAccNumber = 1000000000L + new Random().nextInt(900000000);
 
         newAccount.setAccountNumber(randomAccNumber);
@@ -58,7 +63,7 @@ public class AccountServiceImpl implements IAccountService {
          Customer customer= customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
                  () -> new ResourceNotFoundException("Customer not found with ", "mobile number " , mobileNumber));
 
-        Account account=accountRepository.findByCustomerIdf(customer.getCustomerId()).orElseThrow(
+        Account account=accountRepository.findByCustomerId(customer.getCustomerId()).orElseThrow(
                 () -> new ResourceNotFoundException("Account not found with ", "customer id " , customer.getCustomerId())
         );
         CustomerDTO customerDTO = CustomerMapper.mapToCustomerDto(customer, new CustomerDTO());
@@ -76,9 +81,9 @@ public class AccountServiceImpl implements IAccountService {
             AccountMapper.mapToAccounts(accountDTO, account);
             account= accountRepository.save(account);
 
-            Long customerIdf = account.getCustomerIdf();
-            Customer customer = customerRepository.findById(customerIdf).orElseThrow(
-                    () -> new ResourceNotFoundException("Customer not found with ", "customer id " , customerIdf));
+            Long customerId = account.getCustomerId();
+            Customer customer = customerRepository.findById(customerId).orElseThrow(
+                    () -> new ResourceNotFoundException("Customer not found with ", "customer id " , customerId));
             CustomerMapper.mapToCustomer(customerDTO, customer);
             customerRepository.save(customer);
             isUpdated = true;
@@ -93,7 +98,7 @@ public class AccountServiceImpl implements IAccountService {
                 () -> new ResourceNotFoundException("Customer not found with ", "mobile number " , mobileNumber)
         );
 
-        accountRepository.deleteByCustomerIdf(customer.getCustomerId());
+        accountRepository.deleteByCustomerId(customer.getCustomerId());
         customerRepository.delete(customer);
 
         return true;
