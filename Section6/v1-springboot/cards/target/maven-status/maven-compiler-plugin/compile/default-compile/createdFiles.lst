@@ -10,6 +10,7 @@ com\eazybytes\cards\dto\ErrorResponseDto.class
 com\eazybytes\cards\exception\GlobalExceptionHandler.class
 com\eazybytes\cards\service\ICardsService.class
 com\eazybytes\cards\controller\CardsController.class
+com\eazybytes\cards\dto\CardsContactInfoDto.class
 com\eazybytes\cards\entity\BaseEntity.class
 com\eazybytes\cards\CardsApplication.class
 com\eazybytes\cards\repository\CardsRepository.class

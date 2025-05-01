@@ -2,6 +2,7 @@ D:\JAVA\UDemy\Microservices\Section6\v1-springboot\cards\src\main\java\com\eazyb
 D:\JAVA\UDemy\Microservices\Section6\v1-springboot\cards\src\main\java\com\eazybytes\cards\CardsApplication.java
 D:\JAVA\UDemy\Microservices\Section6\v1-springboot\cards\src\main\java\com\eazybytes\cards\constants\CardsConstants.java
 D:\JAVA\UDemy\Microservices\Section6\v1-springboot\cards\src\main\java\com\eazybytes\cards\controller\CardsController.java
+D:\JAVA\UDemy\Microservices\Section6\v1-springboot\cards\src\main\java\com\eazybytes\cards\dto\CardsContactInfoDto.java
 D:\JAVA\UDemy\Microservices\Section6\v1-springboot\cards\src\main\java\com\eazybytes\cards\dto\CardsDto.java
 D:\JAVA\UDemy\Microservices\Section6\v1-springboot\cards\src\main\java\com\eazybytes\cards\dto\ErrorResponseDto.java
 D:\JAVA\UDemy\Microservices\Section6\v1-springboot\cards\src\main\java\com\eazybytes\cards\dto\ResponseDto.java

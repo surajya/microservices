@@ -2,6 +2,7 @@ com\example\loans\exception\ResourceNotFoundException.class
 com\example\loans\service\ILoansService.class
 com\example\loans\dto\ErrorResponseDto.class
 com\example\loans\entity\BaseEntity.class
+com\example\loans\dto\LoansContactInfoDto.class
 com\example\loans\contants\LoansConstants.class
 com\example\loans\repository\LoansRepository.class
 com\example\loans\entity\Loans.class

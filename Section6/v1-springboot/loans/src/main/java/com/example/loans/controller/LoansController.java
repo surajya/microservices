@@ -2,6 +2,7 @@ package com.example.loans.controller;
 
 import com.example.loans.contants.LoansConstants;
 import com.example.loans.dto.ErrorResponseDto;
+import com.example.loans.dto.LoansContactInfoDto;
 import com.example.loans.dto.LoansDto;
 import com.example.loans.dto.ResponseDto;
 import com.example.loans.service.ILoansService;
@@ -14,6 +15,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -30,11 +33,21 @@ import org.springframework.web.bind.annotation.*;
 )
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
-@AllArgsConstructor
 @Validated
 public class LoansController {
 
+    @Value("${build.version}")
+    private String buildVersion;
+
     private ILoansService iLoansService;
+    private Environment environment;
+    private LoansContactInfoDto loansContactInfoDto;
+
+    LoansController(ILoansService iLoansService, Environment environment, LoansContactInfoDto loansContactInfoDto) {
+        this.iLoansService = iLoansService;
+        this.environment = environment;
+        this.loansContactInfoDto = loansContactInfoDto;
+    }
 
     @Operation(
             summary = "Create Loan REST API",
@@ -163,5 +176,74 @@ public class LoansController {
                     .body(new ResponseDto(LoansConstants.STATUS_417, LoansConstants.MESSAGE_417_DELETE));
         }
     }
+
+    @Operation(
+            summary = "Fetch build info REST API",
+            description = "REST API to build info"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    })
+    @GetMapping("/build-info")
+    public ResponseEntity<String> getVersion() {
+        return ResponseEntity.ok(buildVersion);
+    }
+
+
+    @Operation(
+            summary = "Fetch java info REST API",
+            description = "REST API to java info"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    })
+    @GetMapping("/java-version")
+    public ResponseEntity<String> getJavaVersion() {
+        return ResponseEntity.ok(environment.getProperty("JAVA_HOME"));
+    }
+
+
+    @Operation(
+            summary = "Fetch contact info REST API",
+            description = "REST API to contact info"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    })
+    @GetMapping("/contact-info")
+    public ResponseEntity<LoansContactInfoDto> getContactInfo() {
+        return ResponseEntity.ok(loansContactInfoDto);
+    }
+
 
 }
