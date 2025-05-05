@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: "configserver"
+  profiles:
+    #active: "native"
+    active: "git"
+  cloud:
+    config:
+      server:
+        #native:
+          #searchLocations: "classpath:/config"
+          #searchLocations: "file:///D:/JAVA/UDemy/Microservices/documents/config"
+        git:
+          uri: "https://github.com/surajya/esaybyte-config.git"
+          default-label: "main"
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
+
+encrypt:
+  key: "SDASJK331J213K12J323K21K213J232KL12K2KJ323KJ123K"
+
+server:
+    port: 8071
