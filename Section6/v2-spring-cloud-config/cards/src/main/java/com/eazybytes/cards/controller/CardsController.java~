@@ -47,8 +47,8 @@ public class CardsController {
         this.cardsContactInfoDto = cardsContactInfoDto;
     }
 
-//    @Value("${build.version}")
-//    private String buildVersion;
+    @Value("${build.version}")
+    private String buildVersion;
 
     @Operation(
             summary = "Create Card REST API",
@@ -175,27 +175,27 @@ public class CardsController {
         }
     }
 
-//    @Operation(
-//            summary = "Fetch build info REST API",
-//            description = "REST API to build info"
-//    )
-//    @ApiResponses({
-//            @ApiResponse(
-//                    responseCode = "200",
-//                    description = "HTTP Status OK"
-//            ),
-//            @ApiResponse(
-//                    responseCode = "500",
-//                    description = "HTTP Status Internal Server Error",
-//                    content = @Content(
-//                            schema = @Schema(implementation = ErrorResponseDto.class)
-//                    )
-//            )
-//    })
-//    @GetMapping("/build-info")
-//    public ResponseEntity<String> getVersion() {
-//        return ResponseEntity.ok(buildVersion);
-//    }
+    @Operation(
+            summary = "Fetch build info REST API",
+            description = "REST API to build info"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    })
+    @GetMapping("/build-info")
+    public ResponseEntity<String> getVersion() {
+        return ResponseEntity.ok(buildVersion);
+    }
 
 
     @Operation(

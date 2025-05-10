@@ -1,6 +1,5 @@
 package com.example.loans.entity;
 
-package com.eazybytes.loans.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

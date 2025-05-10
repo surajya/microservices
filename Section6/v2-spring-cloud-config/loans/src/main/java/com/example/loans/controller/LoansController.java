@@ -39,9 +39,9 @@ public class LoansController {
     @Value("${build.version}")
     private String buildVersion;
 
-    private ILoansService iLoansService;
-    private Environment environment;
-    private LoansContactInfoDto loansContactInfoDto;
+    private final ILoansService iLoansService;
+    private final Environment environment;
+    private final LoansContactInfoDto loansContactInfoDto;
 
     LoansController(ILoansService iLoansService, Environment environment, LoansContactInfoDto loansContactInfoDto) {
         this.iLoansService = iLoansService;

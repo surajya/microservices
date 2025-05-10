@@ -20,7 +20,7 @@ import java.util.Random;
 public class CardsServiceImpl implements ICardsService {
 
 
-    private CardsRepository cardsRepository;
+    private final CardsRepository cardsRepository;
 
     public CardsServiceImpl(CardsRepository cardsRepository) {
         this.cardsRepository = cardsRepository;

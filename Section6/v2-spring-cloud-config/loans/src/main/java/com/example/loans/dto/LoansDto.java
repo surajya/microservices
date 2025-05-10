@@ -11,7 +11,7 @@ import lombok.*;
 @Schema(name = "Loans",
         description = "Schema to hold Loan information"
 )
-@Data
+
 public class LoansDto {
 
     @NotEmpty(message = "Mobile Number can not be a null or empty")
@@ -51,5 +51,78 @@ public class LoansDto {
             description = "Total outstanding amount against a loan", example = "99000"
     )
     private int outstandingAmount;
+
+
+    public LoansDto() {
+    }
+
+    public LoansDto(String mobileNumber, String loanNumber, String loanType, int totalLoan, int amountPaid, int outstandingAmount) {
+        this.mobileNumber = mobileNumber;
+        this.loanNumber = loanNumber;
+        this.loanType = loanType;
+        this.totalLoan = totalLoan;
+        this.amountPaid = amountPaid;
+        this.outstandingAmount = outstandingAmount;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public String getLoanNumber() {
+        return loanNumber;
+    }
+
+    public void setLoanNumber(String loanNumber) {
+        this.loanNumber = loanNumber;
+    }
+
+    public String getLoanType() {
+        return loanType;
+    }
+
+    public void setLoanType(String loanType) {
+        this.loanType = loanType;
+    }
+
+    public int getTotalLoan() {
+        return totalLoan;
+    }
+
+    public void setTotalLoan(int totalLoan) {
+        this.totalLoan = totalLoan;
+    }
+
+    public int getAmountPaid() {
+        return amountPaid;
+    }
+
+    public void setAmountPaid(int amountPaid) {
+        this.amountPaid = amountPaid;
+    }
+
+    public int getOutstandingAmount() {
+        return outstandingAmount;
+    }
+
+    public void setOutstandingAmount(int outstandingAmount) {
+        this.outstandingAmount = outstandingAmount;
+    }
+
+    @Override
+    public String toString() {
+        return "LoansDto{" +
+                "mobileNumber='" + mobileNumber + '\'' +
+                ", loanNumber='" + loanNumber + '\'' +
+                ", loanType='" + loanType + '\'' +
+                ", totalLoan=" + totalLoan +
+                ", amountPaid=" + amountPaid +
+                ", outstandingAmount=" + outstandingAmount +
+                '}';
+    }
 
 }

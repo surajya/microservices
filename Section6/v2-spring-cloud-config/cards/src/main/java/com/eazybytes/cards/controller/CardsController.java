@@ -38,9 +38,9 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 public class CardsController {
 
-    private ICardsService iCardsService;
-    private Environment environment;
-    private CardsContactInfoDto cardsContactInfoDto;
+    private final ICardsService iCardsService;
+    private final Environment environment;
+    private final CardsContactInfoDto cardsContactInfoDto;
     public CardsController(ICardsService iCardsService, Environment environment, CardsContactInfoDto cardsContactInfoDto) {
         this.iCardsService = iCardsService;
         this.environment = environment;
