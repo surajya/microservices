@@ -1,0 +1,31 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: cards
+  datasource:
+    url: jdbc:mysql://localhost:3308/cardsdb
+    username: root
+    password: root
+    sql:
+      init:
+        mode: always
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+
+
+  profiles:
+    active: "prod"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
