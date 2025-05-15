@@ -1,0 +1,19 @@
+package com.EasyBytes.account.entities;
+
+import jakarta.persistence.*;
+import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
+
+@Getter@Setter@ToString@NoArgsConstructor@AllArgsConstructor
+@Entity
+public class Customer extends BaseEntities {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    @Column(name="customer_id")
+    private long customerId;
+    private String name;
+    private String email;
+    @Column(name="mobile_number")
+    private String mobileNumber;
+}
