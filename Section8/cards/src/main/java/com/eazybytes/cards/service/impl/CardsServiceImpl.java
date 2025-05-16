@@ -52,7 +52,7 @@ public class CardsServiceImpl implements ICardsService {
         newCard.setAmountUsed(0);
         newCard.setAvailableAmount(CardsConstants.NEW_CARD_LIMIT);
         newCard.setCreatedAt(LocalDateTime.now());
-        newCard.setCreatedBy("Mohandas Karamchand Gandhi");
+        newCard.setCreatedBy("Mokshagundam");
         return newCard;
     }
 

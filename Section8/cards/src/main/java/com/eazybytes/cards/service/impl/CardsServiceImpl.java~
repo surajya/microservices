@@ -20,7 +20,7 @@ import java.util.Random;
 public class CardsServiceImpl implements ICardsService {
 
 
-    private CardsRepository cardsRepository;
+    private final CardsRepository cardsRepository;
 
     public CardsServiceImpl(CardsRepository cardsRepository) {
         this.cardsRepository = cardsRepository;
@@ -52,7 +52,7 @@ public class CardsServiceImpl implements ICardsService {
         newCard.setAmountUsed(0);
         newCard.setAvailableAmount(CardsConstants.NEW_CARD_LIMIT);
         newCard.setCreatedAt(LocalDateTime.now());
-        newCard.setCreatedBy("Mohandas Karamchand Gandhi");
+        newCard.setCreatedBy("");
         return newCard;
     }
 

@@ -40,5 +40,8 @@ public class CustomerDTO {
     )
     private String mobileNumber;
 
-    private AccountDTO accountDto;
+    @Schema(
+            description="Accounts details of the customer"
+    )
+    private AccountsDto accountsDto;
 }

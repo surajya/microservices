@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @Tag(
     name = "EasyBankRest API Documentation",
-    description = "Create, Post, Update, Delete Account"
+    description = "Create, Post, Update, Delete Accounts"
 )
 class AccountController {
 
@@ -49,10 +49,10 @@ class AccountController {
     }
 
     @Operation(
-        summary = "Create Account Details Rest API",
+        summary = "Create Accounts Details Rest API",
         description = "Rest API Create account and customer"
     )
-    @ApiResponse(responseCode = "201", description = "Account Created Successfully")
+    @ApiResponse(responseCode = "201", description = "Accounts Created Successfully")
     @PostMapping(path = "/create")
     public ResponseEntity<ResponseDTO> createAccount(@Valid @RequestBody CustomerDTO customerDTO) {
         iAccountService.CreateAccount(customerDTO);
@@ -62,10 +62,10 @@ class AccountController {
     }
 
     @Operation(
-            summary = "Fetch Account Details Rest API",
-            description = "Rest API Fetch Details of Account And Customer"
+            summary = "Fetch Accounts Details Rest API",
+            description = "Rest API Fetch Details of Accounts And Customer"
     )
-    @ApiResponse(responseCode = "201", description = "Account Fetched Successfully")
+    @ApiResponse(responseCode = "201", description = "Accounts Fetched Successfully")
     @GetMapping(path = "/fetch")
     public ResponseEntity<CustomerDTO> getAccount(@RequestParam
                                                       @Pattern(regexp = "^[0-9]{10}", message = "Invalid mobile number")
@@ -79,14 +79,14 @@ class AccountController {
 
     @PutMapping(path = "/update")
     @Operation(
-            summary = "Update Account Details Rest API",
-            description = "Rest API Update Details of Account And Customer according to mobile number"
+            summary = "Update Accounts Details Rest API",
+            description = "Rest API Update Details of Accounts And Customer according to mobile number"
     )
 
     @ApiResponses({
                      @ApiResponse(
                     responseCode = "200",
-                    description = "Account Update Successfully"
+                    description = "Accounts Update Successfully"
             ),
 
             @ApiResponse(
@@ -96,7 +96,7 @@ class AccountController {
 
             @ApiResponse(
                     responseCode = "500",
-                    description = "Account Not Update Successfully",
+                    description = "Accounts Not Update Successfully",
                     content = @Content(schema = @Schema(implementation = ErrorResponseDTO.class))
             )}
     )
@@ -116,14 +116,14 @@ class AccountController {
     }
 
     @Operation(
-            summary = "Delete Account Rest API",
-            description = "Rest API Delete Account And Customer according to mobile number"
+            summary = "Delete Accounts Rest API",
+            description = "Rest API Delete Accounts And Customer according to mobile number"
     )
 
     @ApiResponses({
             @ApiResponse(
                     responseCode = "200",
-                    description = "Account Deleted Successfully"
+                    description = "Accounts Deleted Successfully"
             ),
             @ApiResponse(
                     responseCode = "417",
@@ -132,7 +132,7 @@ class AccountController {
 
             @ApiResponse(
             responseCode = "500",
-            description = "Account Unable to Delete"
+            description = "Accounts Unable to Delete"
     )}
     )
     @DeleteMapping(path = "/delete")
@@ -154,8 +154,8 @@ class AccountController {
 
 
     @Operation(
-            summary = "Fetch build version of Account Rest API",
-            description = "Rest API Fetch build version of Account"
+            summary = "Fetch build version of Accounts Rest API",
+            description = "Rest API Fetch build version of Accounts"
     )
     @ApiResponse(responseCode = "201", description = "build version Fetched Successfully")
     @GetMapping(path = "/build-info")
@@ -165,8 +165,8 @@ class AccountController {
 
 
     @Operation(
-            summary = "Fetch java version of Account Rest API",
-            description = "Rest API Fetch java info version of Account"
+            summary = "Fetch java version of Accounts Rest API",
+            description = "Rest API Fetch java info version of Accounts"
     )
     @ApiResponse(responseCode = "201", description = "build version Fetched Successfully")
     @GetMapping(path = "/java-version")

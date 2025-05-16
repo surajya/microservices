@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>accounts</name>
-	<description>Microservice of account</description>
+	<description>Microservice of accounts</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -95,6 +95,16 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+		<dependency>
+			<groupId>com.eazybytes</groupId>
+			<artifactId>cards</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
 		</dependency>
 
 	</dependencies>
