@@ -23,6 +23,7 @@ public class GatewayserverApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GatewayserverApplication.class, args);
+		System.out.println("Gateway server started.........");
 	}
 
 	@Bean

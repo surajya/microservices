@@ -10,14 +10,14 @@ spring:
           enabled: false
           lower-case-service-id: true
       httpclient:
-        connect-timeout: 5000
+        connect-timeout: 50000
         response-timeout: 10s
   data:
     redis:
-      connect-timeout: 2s
+      connect-timeout: 10s
       host: localhost
       port: 6379
-      timeout: 1s
+      timeout: 10s
 #      B. Command for create docker image
 #      docker run -it --rm jordi/ab sh
 #      C. Command for run apach- bench docker image
